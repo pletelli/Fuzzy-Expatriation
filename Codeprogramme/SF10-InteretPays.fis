@@ -1,0 +1,85 @@
+[System]
+Name='SF10-InteretPays'
+Type='sugeno'
+Version=2.0
+NumInputs=3
+NumOutputs=1
+NumRules=36
+AndMethod='min'
+OrMethod='max'
+ImpMethod='prod'
+AggMethod='sum'
+DefuzzMethod='wtaver'
+
+[Input1]
+Name='InteretMédical'
+Range=[0 1]
+NumMFs=3
+MF1='Risqué':'trimf',[-0.4 0 0.4]
+MF2='Convenable':'trimf',[0.1 0.5 0.9]
+MF3='Idéal':'trimf',[0.6 1 1.4]
+
+[Input2]
+Name='InteretPsychologique'
+Range=[0 1]
+NumMFs=4
+MF1='Risqué':'trimf',[-0.4 0 0.4]
+MF2='Convenable':'trimf',[0.1 0.353 0.596560846560847]
+MF3='Agréable':'trimf',[0.392857142857143 0.649 0.893]
+MF4='Idéal':'trimf',[0.6 1 1.4]
+
+[Input3]
+Name='InteretEconomique'
+Range=[0 1]
+NumMFs=3
+MF1='Risqué':'trimf',[-0.4 0 0.4]
+MF2='Convenable':'trimf',[0.1 0.5 0.9]
+MF3='Idéal':'trimf',[0.6 1 1.4]
+
+[Output1]
+Name='output1'
+Range=[0 1]
+NumMFs=5
+MF1='Nul':'constant',[0]
+MF2='Passable':'constant',[0.3]
+MF3='Bien':'constant',[0.6]
+MF4='Excellent':'constant',[0.9]
+MF5='TopTop':'constant',[1]
+
+[Rules]
+1 1 1, 1 (1) : 1
+1 1 2, 1 (1) : 1
+1 1 3, 2 (1) : 1
+1 2 1, 1 (1) : 1
+1 2 2, 2 (1) : 1
+1 2 3, 2 (1) : 1
+1 3 1, 1 (1) : 1
+1 3 2, 2 (1) : 1
+1 3 3, 3 (1) : 1
+1 4 1, 2 (1) : 1
+1 4 2, 3 (1) : 1
+1 4 3, 3 (1) : 1
+2 1 1, 1 (1) : 1
+2 1 2, 1 (1) : 1
+2 1 3, 2 (1) : 1
+2 2 1, 1 (1) : 1
+2 2 2, 2 (1) : 1
+2 2 3, 3 (1) : 1
+2 3 1, 2 (1) : 1
+2 3 2, 3 (1) : 1
+2 3 3, 4 (1) : 1
+2 4 1, 2 (1) : 1
+2 4 2, 3 (1) : 1
+2 4 3, 4 (1) : 1
+3 1 1, 1 (1) : 1
+3 1 2, 2 (1) : 1
+3 1 3, 2 (1) : 1
+3 2 1, 2 (1) : 1
+3 2 2, 3 (1) : 1
+3 2 3, 3 (1) : 1
+3 3 1, 2 (1) : 1
+3 3 2, 4 (1) : 1
+3 3 3, 4 (1) : 1
+3 4 1, 3 (1) : 1
+3 4 2, 4 (1) : 1
+3 4 3, 5 (1) : 1

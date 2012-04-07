@@ -1,0 +1,52 @@
+[System]
+Name='SF5-InteretPsychologique'
+Type='sugeno'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=12
+AndMethod='min'
+OrMethod='max'
+ImpMethod='prod'
+AggMethod='sum'
+DefuzzMethod='wtaver'
+
+[Input1]
+Name='AdéquationCulturelle'
+Range=[0 1]
+NumMFs=3
+MF1='Nulle':'trapmf',[-0.3374 0.1634 0.2434 0.3826]
+MF2='Moyenne':'trapmf',[0.14 0.46 0.54 0.86]
+MF3='Parfaite':'trapmf',[0.64 0.96 1.04 1.36]
+
+[Input2]
+Name='AdéquationModeVie'
+Range=[0 1]
+NumMFs=4
+MF1='Incompatible':'trapmf',[0 0 0.1 0.3]
+MF2='Envisageable':'trapmf',[0.05 0.3 0.4 0.65]
+MF3='Adéquate':'trapmf',[0.4 0.6 0.7 0.95]
+MF4='Idéale':'trapmf',[0.75 0.95 1.04 1.36]
+
+[Output1]
+Name='output1'
+Range=[0 1]
+NumMFs=4
+MF1='Risqué':'constant',[0]
+MF2='Convenable':'constant',[0.4]
+MF3='Agréable':'constant',[0.65]
+MF4='Idéal':'constant',[1]
+
+[Rules]
+1 1, 1 (1) : 1
+1 2, 1 (1) : 1
+1 3, 2 (1) : 1
+1 4, 3 (1) : 1
+2 1, 1 (1) : 1
+2 4, 4 (1) : 1
+2 2, 2 (1) : 1
+2 3, 3 (1) : 1
+3 1, 1 (1) : 1
+3 2, 2 (1) : 1
+3 3, 4 (1) : 1
+3 4, 4 (1) : 1

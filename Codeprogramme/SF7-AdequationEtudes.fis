@@ -1,0 +1,47 @@
+[System]
+Name='SF7-AdequationEtudes'
+Type='sugeno'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=9
+AndMethod='min'
+OrMethod='max'
+ImpMethod='prod'
+AggMethod='sum'
+DefuzzMethod='wtaver'
+
+[Input1]
+Name='NiveauEtude'
+Range=[0 8]
+NumMFs=3
+MF1='EtudesCourtes':'trapmf',[0 0 1 3]
+MF2='Diplomé':'trapmf',[1 3 5 7]
+MF3='Intello':'trapmf',[5 7 8 8]
+
+[Input2]
+Name='TauxChomage'
+Range=[0 50]
+NumMFs=3
+MF1='Faible':'trapmf',[0 0 5 20]
+MF2='Moyen':'trapmf',[5 20 22 40]
+MF3='Fort':'trapmf',[22 40 52 68]
+
+[Output1]
+Name='output1'
+Range=[0 1]
+NumMFs=3
+MF1='Risqué':'constant',[0]
+MF2='Correct':'constant',[0.5]
+MF3='Parfait':'constant',[1]
+
+[Rules]
+1 1, 3 (1) : 1
+1 2, 1 (1) : 1
+1 3, 1 (1) : 1
+2 1, 3 (1) : 1
+2 2, 2 (1) : 1
+2 3, 1 (1) : 1
+3 1, 3 (1) : 1
+3 2, 3 (1) : 1
+3 3, 2 (1) : 1

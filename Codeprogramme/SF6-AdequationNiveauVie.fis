@@ -1,0 +1,47 @@
+[System]
+Name='SF6-AdequationNiveauVie'
+Type='sugeno'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=9
+AndMethod='min'
+OrMethod='max'
+ImpMethod='prod'
+AggMethod='sum'
+DefuzzMethod='wtaver'
+
+[Input1]
+Name='EsperanceNiveauVie'
+Range=[0 100]
+NumMFs=3
+MF1='Intouchable':'trapmf',[0 0 15 40]
+MF2='Modeste':'trapmf',[14 45 55 86]
+MF3='Aisé':'trapmf',[60 80 104 136]
+
+[Input2]
+Name='RNB'
+Range=[0 70]
+NumMFs=3
+MF1='Faible':'trapmf',[0 0 7 20]
+MF2='Moyen':'trapmf',[7 20 30 45]
+MF3='Elevé':'trapmf',[30 45 70 70]
+
+[Output1]
+Name='output1'
+Range=[0 1]
+NumMFs=3
+MF1='Restreinte':'constant',[0]
+MF2='Adaptée':'constant',[0.5]
+MF3='Parfaite':'constant',[1]
+
+[Rules]
+1 1, 3 (1) : 1
+1 2, 2 (1) : 1
+1 3, 2 (1) : 1
+2 1, 2 (1) : 1
+2 2, 3 (1) : 1
+2 3, 2 (1) : 1
+3 1, 1 (1) : 1
+3 2, 2 (1) : 1
+3 3, 3 (1) : 1
